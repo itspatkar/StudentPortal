@@ -26,6 +26,24 @@
                 <label for="question"><b>Questions :</b> </label>
                 <ul id="questionDetails">
                     <li class="question-row">
+                        <select name="skill[]" id="skills">
+                            <option value="">Select Skills</option>
+                            <?php
+                            require "PHP/connection.php";
+                            $sql = "SELECT * FROM skillset";
+                            $result = $conn->query($sql);
+                            $row = mysqli_num_rows($result);
+
+                            if ($row > 0) {
+                                for ($i = 1; $i <= $row; $i++) {
+                                    $data = mysqli_fetch_assoc($result);
+                                    echo '<option value="' . $data['skill_id'] . '">' . $data['skill_name'] . '</option>';
+                                }
+                            } else {
+                                echo 'No Records Found!';
+                            }
+                            ?>
+                        </select>
                         <input type="text" name="question[]" placeholder="Question" required>
                         <button type="button" onclick="addQNA()">Add</button>
                         <br><br>

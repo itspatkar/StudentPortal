@@ -28,21 +28,59 @@
                     <?php
                     require "PHP/connection.php";
 
-                    $sql = "SELECT question_id, question FROM questionset WHERE question_status = '0'";
+                    $sql = "SELECT question_id, question, skill_id FROM questionset WHERE question_status = '0'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<li class="question-row">';
-                            echo '<input type="text" name="question[]" placeholder="Question" value="' . $row['question'] . '" required>&nbsp;';
-                            // echo '<input type="hidden" name="question[]" value="' . $row['question_id'] . '">';
-                            echo '<button type="button" onclick="removeQNA(this,' . $row['question_id'] . ')">Remove</button><br><br>';
-                            echo '</li>';
-                        }
-                    }
                     ?>
+                            <select name="skill[]">
+                                <option value="">Select Skill</option>
+                                <?php
+                                require "PHP/connection.php";
+                                $sql_s = "SELECT * FROM skillset";
+                                $result_s = $conn->query($sql_s);
+                                $row_s = mysqli_num_rows($result_s);
+
+                                if ($row_s > 0) {
+                                    for ($i = 1; $i <= $row_s; $i++) {
+                                        $data = mysqli_fetch_assoc($result_s);
+                                        $selected = ($row['skill_id'] == $data['skill_id']) ? 'selected' : '';
+                                        echo '<option value="' . $data['skill_id'] . '"'  . $selected . '>' . $data['skill_name'] . '</option>';
+                                    }
+                                } else {
+                                    echo 'No Records Found!';
+                                }
+                                ?>
+                            </select><?php
+                                        echo '&nbsp;<input type="text" name="question[]" placeholder="Question" value="' . $row['question'] . '" required>&nbsp;';
+                                        echo '<input type="hidden" name="question_id" value="' . $row['question_id'] . '">';
+                                        echo '<button type="button" onclick="removeQNA(this,' . $row['question_id'] . ')">Remove</button><br><br>';
+                                        echo '</li>';
+                                    }
+                                }
+                                        ?>
 
                     <li class="question-row">
+                        <select name="skill[]">
+                            <option value="">Select Skill</option>
+                            <?php
+                            require "PHP/connection.php";
+                            $sql = "SELECT * FROM skillset";
+                            $result = $conn->query($sql);
+                            $row = mysqli_num_rows($result);
+
+                            if ($row > 0) {
+                                for ($i = 1; $i <= $row; $i++) {
+                                    $data = mysqli_fetch_assoc($result);
+                                    echo '<option value="' . $data['skill_id'] . '">' . $data['skill_name'] . '</option>';
+                                }
+                            } else {
+                                echo 'No Records Found!';
+                            }
+                            ?>
+                        </select>
                         <input type="text" name="question[]" placeholder="Question">
                         <button type="button" onclick="addQNA()">Add</button><br><br>
                     </li>

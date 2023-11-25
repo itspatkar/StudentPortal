@@ -1,13 +1,21 @@
 
 function addQNA() {
-    var container = document.getElementById("questionDetails");
-    var row = document.createElement("li");
-    row.className = "question-row";
-    row.innerHTML = `
-            <input type="text" name="question[]" placeholder="Question" required>
+    var XHR = new XMLHttpRequest();
+    XHR.open('GET', 'PHP/load_skills.php');
+    XHR.send();
+    XHR.onload = function () {
+        if (XHR.status != 200) {
+            alert(XHR.statusText);
+        } else {
+            var container = document.getElementById("questionDetails");
+            var row = document.createElement("li");
+            row.className = "question-row";
+            row.innerHTML = XHR.response + `&nbsp;<input type="text" name="question[]" placeholder="Question" required>
             <button type="button" onclick="removeQNA(this)">Remove</button><br><br>
         `;
-    container.appendChild(row);
+            container.appendChild(row);
+        }
+    }
 }
 
 function removeQNA(button, q_id) {

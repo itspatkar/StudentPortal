@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2023 at 02:00 PM
+-- Generation Time: Nov 25, 2023 at 11:46 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -31,6 +31,14 @@ CREATE TABLE `certificates` (
   `student_id` int(11) NOT NULL,
   `cert_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `certificates`
+--
+
+INSERT INTO `certificates` (`student_id`, `cert_name`) VALUES
+(20, ''),
+(20, '');
 
 -- --------------------------------------------------------
 
@@ -73,7 +81,8 @@ CREATE TABLE `questions` (
 CREATE TABLE `questionset` (
   `question_id` int(11) NOT NULL,
   `question` text NOT NULL,
-  `question_status` int(11) DEFAULT NULL
+  `question_status` int(11) DEFAULT NULL,
+  `skill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -86,6 +95,14 @@ CREATE TABLE `skills` (
   `student_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`student_id`, `skill_id`) VALUES
+(20, 5),
+(20, 6);
 
 -- --------------------------------------------------------
 
@@ -220,7 +237,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `questionset`
 --
 ALTER TABLE `questionset`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `skillset`
@@ -238,7 +255,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
