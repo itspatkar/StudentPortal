@@ -26,7 +26,7 @@
 
         <div class="container">
 
-            <a type="button" class="btn btn-primary" href="create_form.php">Add Student</a>
+            <a type="button" class="btn btn-secondary" href="create_form.php">Add Student</a>
             <a type="button" class="btn btn-info float-right" href="update_question_form.php">Update Questions</a>
             <a type="button" class="btn btn-primary float-right" href="add_question_form.php">Add Questions</a>
             <br><br>
@@ -55,9 +55,9 @@
                             <td><?php echo $i; ?></td>
                             <td><?php echo $name; ?></td>
                             <td>
-                                <a type="button" class="btn btn-primary" href="PHP/read.php?id=<?php echo $id; ?>">View</a>
-                                <a type="button" class="btn btn-warning" href="update_form.php?id=<?php echo $id; ?>">Edit</a>
-                                <a type="button" class="btn btn-danger" href="PHP/delete.php?id=<?php echo $id; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                                <a type="button" class="btn btn-primary btn-sm" href="PHP/read.php?id=<?php echo $id; ?>">View</a>
+                                <a type="button" class="btn btn-warning btn-sm" href="update_form.php?id=<?php echo $id; ?>">Edit</a>
+                                <a type="button" class="btn btn-danger btn-sm" href="PHP/delete.php?id=<?php echo $id; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -68,6 +68,7 @@
             </table>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

@@ -22,8 +22,8 @@
         <h2 class="p-5 text-center">Update Questions</h2>
 
         <div class="jumbotron">
-        <h4><b>Questions :</b> </h4>
-        <br>
+            <h4><b>Questions :</b> </h4>
+            <br>
             <form method="post" action="PHP/update_question.php">
                 <ul id="questionDetails">
                     <?php
@@ -38,7 +38,6 @@
                             echo '<li class="question-row">';
                     ?>
                             <select name="skill[]">
-                                <option value="">Select Skill</option>
                                 <?php
                                 require "PHP/connection.php";
                                 $sql_s = "SELECT * FROM skillset";
@@ -48,56 +47,37 @@
                                 if ($row_s > 0) {
                                     for ($i = 1; $i <= $row_s; $i++) {
                                         $data = mysqli_fetch_assoc($result_s);
-                                        $selected = ($row['skill_id'] == $data['skill_id']) ? 'selected' : '';
-                                        echo '<option value="' . $data['skill_id'] . '"'  . $selected . '>' . $data['skill_name'] . '</option>';
+                                        if ($row['skill_id'] == $data['skill_id']) {
+                                            echo '<option value="' . $data['skill_id'] . '" selected>' . $data['skill_name'] . '</option>';
+                                        }
                                     }
                                 } else {
-                                    echo 'No Records Found!';
+                                    echo "No Records Found!";
                                 }
                                 ?>
                             </select>
                     <?php
-                            echo '&nbsp;<input type="text" name="question[]" placeholder="Question" value="' . $row['question'] . '" required>&nbsp;';
-                            echo '<input type="hidden" name="question_id" value="' . $row['question_id'] . '">';
-                            echo '<button type="button" onclick="removeQNA(this,' . $row['question_id'] . ')">Remove</button><br><br>';
+                            echo '&nbsp;<input type="text" name="question[]" placeholder="Question" value="' . $row['question'] . '" readonly>&nbsp;';
+                            // echo '<input type="hidden" name="question_id" value="' . $row['question_id'] . '">';
+                            echo '<button type="button" class="btn btn-danger btn-sm" onclick="removeQNA(this,' . $row['question_id'] . ')">Remove</button><br><br>';
                             echo '</li>';
                             $count_question++;
                         }
                     }
                     ?>
 
-                    <!-- <li class="question-row">
-                        <select name="skill[]">
-                            <option value="">Select Skill</option>
-                            <?php
-                            require "PHP/connection.php";
-                            $sql = "SELECT * FROM skillset";
-                            $result = $conn->query($sql);
-                            $row = mysqli_num_rows($result);
-
-                            if ($row > 0) {
-                                for ($i = 1; $i <= $row; $i++) {
-                                    $data = mysqli_fetch_assoc($result);
-                                    echo '<option value="' . $data['skill_id'] . '">' . $data['skill_name'] . '</option>';
-                                }
-                            } else {
-                                echo 'No Records Found!';
-                            }
-                            ?>
-                        </select>
-                        <input type="text" name="question[]" placeholder="Question">
-                        <button type="button" onclick="addQNA()">Add</button><br><br>
-                    </li> -->
                     <input type="hidden" name="count_question" value="<?php echo $count_question; ?>">
                 </ul>
 
-                <input type="button" class="btn btn-outline-primary" onclick="addQNA()" value="Add Question">
-
-                <input type="submit" class="btn btn-outline-primary" name="submit" value="Submit">
+                <div>
+                    <input type="button" class="btn btn-primary btn-sm" onclick="addQNA()" value="Add Question">
+                    <input type="submit" class="btn btn-success btn-sm" name="submit" value="Submit">
+                    <a type="button" class="btn btn-info btn-sm" href="index.php">Home</a>
+                </div>
             </form>
         </div>
-        <div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="index.php">HOME</a></button></div>
     </div>
+    
     <script src="JS/questions.js"></script>
 </body>
 

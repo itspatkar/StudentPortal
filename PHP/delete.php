@@ -48,11 +48,3 @@ if (isset($_GET['id'])) {
 }
 
 $conn->close();
-?>
-
-<div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="../index.php">HOME</a></button></div>
-</div>
-</div>
-</body>
-
-</html>

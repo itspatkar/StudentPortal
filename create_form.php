@@ -19,7 +19,7 @@
 
 <body>
     <div>
-        <h2 class="p-5 text-center">Add New Student</h2>
+        <h2 class="p-4 text-center">Add New Student</h2>
 
         <div class="container">
             <div class="jumbotron">
@@ -109,11 +109,12 @@
                         </ul>
                     </div>
 
-                    <input class="m-3" type="submit" name="submit" value="Submit">
+                    <div>
+                        <input type="submit" class="btn btn-success btn-sm" name="submit" value="Submit">
+                        <a type="button" class="btn btn-info btn-sm" href="index.php">Home</a>
+                    </div>
                 </form>
             </div>
-
-            <div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="index.php">HOME</a></button></div>
         </div>
     </div>
 

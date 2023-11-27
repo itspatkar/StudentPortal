@@ -11,7 +11,7 @@ function addQNA() {
             var row = document.createElement("li");
             row.className = "question-row";
             row.innerHTML = XHR.response + `&nbsp;<input type="text" name="question[]" placeholder="Question" required>
-            <button type="button" onclick="removeQNA(this)">Remove</button><br><br>
+            <button type="button" class="btn btn-danger btn-sm" onclick="removeQNA(this)">Remove</button><br><br>
         `;
             container.appendChild(row);
         }

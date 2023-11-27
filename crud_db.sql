@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2023 at 11:46 AM
+-- Generation Time: Nov 27, 2023 at 11:14 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -32,14 +32,6 @@ CREATE TABLE `certificates` (
   `cert_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `certificates`
---
-
-INSERT INTO `certificates` (`student_id`, `cert_name`) VALUES
-(20, ''),
-(20, '');
-
 -- --------------------------------------------------------
 
 --
@@ -58,7 +50,10 @@ CREATE TABLE `cities` (
 
 INSERT INTO `cities` (`city_id`, `city_name`, `state_id`) VALUES
 (1, 'Mumbai', 14),
-(2, 'Pune', 14);
+(2, 'Pune', 14),
+(3, 'Varanasi', 26),
+(4, 'Prayagraj', 26),
+(5, 'Ayodhya', 26);
 
 -- --------------------------------------------------------
 
@@ -95,14 +90,6 @@ CREATE TABLE `skills` (
   `student_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `skills`
---
-
-INSERT INTO `skills` (`student_id`, `skill_id`) VALUES
-(20, 5),
-(20, 6);
 
 -- --------------------------------------------------------
 
@@ -231,13 +218,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `questionset`
 --
 ALTER TABLE `questionset`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `skillset`
@@ -255,7 +242,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

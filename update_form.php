@@ -146,7 +146,10 @@
 
                                 <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
 
-                                <input class="m-3" type="submit" name="submit" value="Submit">
+                                <div>
+                                    <input type="button" class="btn btn-success btn-sm" name="submit" value="Submit">
+                                    <a type="button" class="btn btn-info btn-sm" href="index.php">Home</a>
+                                </div>
                             </form>
                 <?php
                         }
@@ -156,7 +159,7 @@
                 ?>
             </div>
 
-            <div class="text-center"><a type="button" class="btn btn-primary btn-sm" href="index.php">HOME</a></div>
+
         </div>
     </div>
     <script src="JS/select_city.js"></script>

@@ -22,8 +22,9 @@
         <h2 class="p-5 text-center">Add Question</h2>
 
         <div class="jumbotron">
+            <h4><b>Questions :</b> </h4>
+            <br>
             <form method="post" action="PHP/add_question.php">
-                <label for="question"><b>Questions :</b> </label>
                 <ul id="questionDetails">
                     <li class="question-row">
                         <select name="skill[]" id="skills">
@@ -45,16 +46,17 @@
                             ?>
                         </select>
                         <input type="text" name="question[]" placeholder="Question" required>
-                        <button type="button" onclick="addQNA()">Add</button>
                         <br><br>
                     </li>
                 </ul>
 
-                <input class="m-3" type="submit" name="submit" value="Submit">
+                <div>
+                    <input type="button" class="btn btn-primary btn-sm" value="Add Question" onclick="addQNA()">
+                    <input class="btn btn-success btn-sm" type="submit" name="submit" value="Submit">
+                    <a type="button" class="btn btn-info btn-sm" href="index.php">Home</a>
+                </div>
             </form>
         </div>
-
-        <div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="index.php">HOME</a></button></div>
     </div>
     <script src="JS/questions.js"></script>
 </body>

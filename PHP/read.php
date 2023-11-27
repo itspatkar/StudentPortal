@@ -106,9 +106,9 @@
 
                 $conn->close();
                 ?>
-            </div>
 
-            <div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="../index.php">HOME</a></button></div>
+                <div class="text-center"><a type="button" class="btn btn-primary btn-sm" href="../index.php">HOME</a></div>
+            </div>
         </div>
     </div>
 </body>
