@@ -147,7 +147,7 @@
                                 <input type="hidden" id="id" name="id" value="<?php echo $id; ?>">
 
                                 <div>
-                                    <input type="button" class="btn btn-success btn-sm" name="submit" value="Submit">
+                                    <input type="submit" class="btn btn-success btn-sm" name="submit" value="Submit">
                                     <a type="button" class="btn btn-info btn-sm" href="index.php">Home</a>
                                 </div>
                             </form>
