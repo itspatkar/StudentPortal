@@ -156,9 +156,10 @@
                 ?>
             </div>
 
-            <div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="index.php">HOME</a></button></div>
+            <div class="text-center"><a type="button" class="btn btn-primary btn-sm" href="index.php">HOME</a></div>
         </div>
     </div>
+    <script src="JS/select_city.js"></script>
     <script>
         $(document).ready(function() {
             $('.skills').select2();

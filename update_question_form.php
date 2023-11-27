@@ -22,8 +22,9 @@
         <h2 class="p-5 text-center">Update Questions</h2>
 
         <div class="jumbotron">
+        <h4><b>Questions :</b> </h4>
+        <br>
             <form method="post" action="PHP/update_question.php">
-                <label for="question"><b>Questions :</b> </label>
                 <ul id="questionDetails">
                     <?php
                     require "PHP/connection.php";
@@ -31,6 +32,7 @@
                     $sql = "SELECT question_id, question, skill_id FROM questionset WHERE question_status = '0'";
                     $result = $conn->query($sql);
 
+                    $count_question = 0;
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo '<li class="question-row">';
@@ -53,16 +55,18 @@
                                     echo 'No Records Found!';
                                 }
                                 ?>
-                            </select><?php
-                                        echo '&nbsp;<input type="text" name="question[]" placeholder="Question" value="' . $row['question'] . '" required>&nbsp;';
-                                        echo '<input type="hidden" name="question_id" value="' . $row['question_id'] . '">';
-                                        echo '<button type="button" onclick="removeQNA(this,' . $row['question_id'] . ')">Remove</button><br><br>';
-                                        echo '</li>';
-                                    }
-                                }
-                                        ?>
+                            </select>
+                    <?php
+                            echo '&nbsp;<input type="text" name="question[]" placeholder="Question" value="' . $row['question'] . '" required>&nbsp;';
+                            echo '<input type="hidden" name="question_id" value="' . $row['question_id'] . '">';
+                            echo '<button type="button" onclick="removeQNA(this,' . $row['question_id'] . ')">Remove</button><br><br>';
+                            echo '</li>';
+                            $count_question++;
+                        }
+                    }
+                    ?>
 
-                    <li class="question-row">
+                    <!-- <li class="question-row">
                         <select name="skill[]">
                             <option value="">Select Skill</option>
                             <?php
@@ -83,10 +87,13 @@
                         </select>
                         <input type="text" name="question[]" placeholder="Question">
                         <button type="button" onclick="addQNA()">Add</button><br><br>
-                    </li>
+                    </li> -->
+                    <input type="hidden" name="count_question" value="<?php echo $count_question; ?>">
                 </ul>
 
-                <input class="m-3" type="submit" name="submit" value="Submit">
+                <input type="button" class="btn btn-outline-primary" onclick="addQNA()" value="Add Question">
+
+                <input type="submit" class="btn btn-outline-primary" name="submit" value="Submit">
             </form>
         </div>
         <div class="text-center"><button type="button" class="btn btn-outline-primary "><a href="index.php">HOME</a></button></div>
