@@ -64,7 +64,7 @@
                     <input type="file" name="photo" accept="image/*" required>
                     <br>
                     <label><b>Skills :</b> </label>
-                    <select class="skills" name="skills[]" multiple="multiple">
+                    <select id="skills" class="skills" name="skills[]" multiple="multiple" onchange="selectQuestions()">
                         <?php
                         require "PHP/connection.php";
 
@@ -85,27 +85,27 @@
                     <br>
                     <div>
                         <label for="question"><b>Questions :</b> </label>
-                        <ul>
-                            <?php
-                            require "PHP/connection.php";
+                        <ul id="questions">
+                            <!-- <?php
+                                    // require "PHP/connection.php";
 
-                            $sql = "SELECT question FROM questionset WHERE question_status = '0'";
+                                    // $sql = "SELECT question FROM questionset WHERE question_status = '0'";
 
-                            $result = $conn->query($sql);
+                                    // $result = $conn->query($sql);
 
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo '<li>';
-                                    echo '<label for="question"><b>' .  $row['question'] . '</b> </label><br>';
-                                    echo '<input type="text" name="answer[]" placeholder="Answer" required>';
-                                    echo '</li>';
-                                }
-                            } else {
-                                echo "No records found!";
-                            }
-                            $conn->close();
+                                    // if ($result->num_rows > 0) {
+                                    //     while ($row = $result->fetch_assoc()) {
+                                    //         echo '<li>';
+                                    //         echo '<label for="question"><b>' .  $row['question'] . '</b> </label><br>';
+                                    //         echo '<input type="text" name="answer[]" placeholder="Answer" required>';
+                                    //         echo '</li>';
+                                    //     }
+                                    // } else {
+                                    //     echo "No records found!";
+                                    // }
+                                    $conn->close();
 
-                            ?>
+                                    ?> -->
                         </ul>
                     </div>
 
@@ -119,6 +119,7 @@
     </div>
 
     <script src="JS/select_city.js"></script>
+    <script src="JS/select_questions.js"></script>
     <script src="JS/questions.js"></script>
     <script>
         $(document).ready(function() {
