@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 11:14 AM
+-- Generation Time: Nov 28, 2023 at 08:06 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -31,6 +31,14 @@ CREATE TABLE `certificates` (
   `student_id` int(11) NOT NULL,
   `cert_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `certificates`
+--
+
+INSERT INTO `certificates` (`student_id`, `cert_name`) VALUES
+(3, 'User-Profile-PNG-High-Quality-Image-2939447622.png'),
+(3, 'User-Profile-PNG-High-Quality-Image-2939447622.png');
 
 -- --------------------------------------------------------
 
@@ -67,6 +75,15 @@ CREATE TABLE `questions` (
   `answer` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`student_id`, `question_id`, `answer`) VALUES
+(3, 55, 'It is IDE for developing android applications.'),
+(3, 56, 'MERN stands for MongoDB, ExpressJS, ReactJS, NodeJS'),
+(3, 57, 'PHP is server-side scripting language');
+
 -- --------------------------------------------------------
 
 --
@@ -80,6 +97,15 @@ CREATE TABLE `questionset` (
   `skill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `questionset`
+--
+
+INSERT INTO `questionset` (`question_id`, `question`, `question_status`, `skill_id`) VALUES
+(55, 'What is android studio?', 0, 1),
+(56, 'What MERN stands for?', 0, 2),
+(57, 'What is PHP?', 0, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -90,6 +116,14 @@ CREATE TABLE `skills` (
   `student_id` int(11) NOT NULL,
   `skill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`student_id`, `skill_id`) VALUES
+(3, 1),
+(3, 2);
 
 -- --------------------------------------------------------
 
@@ -177,6 +211,13 @@ CREATE TABLE `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`student_id`, `name`, `dob`, `gender`, `state`, `city`, `address`, `photo`) VALUES
+(3, 'Mandar', '2023-11-01', 'M', '14', '1', 'Andheri', 'User-Profile-PNG-High-Quality-Image-2939447622.png');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -224,7 +265,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `questionset`
 --
 ALTER TABLE `questionset`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `skillset`
@@ -242,7 +283,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
