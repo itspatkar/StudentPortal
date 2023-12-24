@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 08:06 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Host: localhost
+-- Generation Time: Dec 24, 2023 at 11:40 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crud_db`
+-- Database: `students_db`
 --
 
 -- --------------------------------------------------------
@@ -37,8 +37,8 @@ CREATE TABLE `certificates` (
 --
 
 INSERT INTO `certificates` (`student_id`, `cert_name`) VALUES
-(3, 'User-Profile-PNG-High-Quality-Image-2939447622.png'),
-(3, 'User-Profile-PNG-High-Quality-Image-2939447622.png');
+(1, ''),
+(1, '');
 
 -- --------------------------------------------------------
 
@@ -80,9 +80,10 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`student_id`, `question_id`, `answer`) VALUES
-(3, 55, 'It is IDE for developing android applications.'),
-(3, 56, 'MERN stands for MongoDB, ExpressJS, ReactJS, NodeJS'),
-(3, 57, 'PHP is server-side scripting language');
+(1, 1, 'It is IDE for developing android applications'),
+(1, 2, 'MongoDB ExpessJS ReactJS NodeJS'),
+(1, 3, 'Laravel is the web framework developed in PHP'),
+(1, 4, 'Django is the web framework developed in python');
 
 -- --------------------------------------------------------
 
@@ -102,9 +103,10 @@ CREATE TABLE `questionset` (
 --
 
 INSERT INTO `questionset` (`question_id`, `question`, `question_status`, `skill_id`) VALUES
-(55, 'What is android studio?', 0, 1),
-(56, 'What MERN stands for?', 0, 2),
-(57, 'What is PHP?', 0, 6);
+(1, 'What is Android Studio?', 0, 1),
+(2, 'What is MERN Stack?', 0, 2),
+(3, 'What is Laravel?', 0, 6),
+(4, 'What is Django?', 0, 4);
 
 -- --------------------------------------------------------
 
@@ -122,8 +124,9 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`student_id`, `skill_id`) VALUES
-(3, 1),
-(3, 2);
+(1, 1),
+(1, 5),
+(1, 6);
 
 -- --------------------------------------------------------
 
@@ -215,7 +218,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`student_id`, `name`, `dob`, `gender`, `state`, `city`, `address`, `photo`) VALUES
-(3, 'Mandar', '2023-11-01', 'M', '14', '1', 'Andheri', 'User-Profile-PNG-High-Quality-Image-2939447622.png');
+(1, 'Mandar', '2023-12-01', 'M', '14', '1', 'Mumbai', '');
 
 --
 -- Indexes for dumped tables
@@ -265,7 +268,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `questionset`
 --
 ALTER TABLE `questionset`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `skillset`
@@ -283,7 +286,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `student_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

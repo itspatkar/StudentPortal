@@ -4,7 +4,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "crud_db";
+$database = "students_db";
 
 $conn = mysqli_connect($host, $username, $password, $database);
 
